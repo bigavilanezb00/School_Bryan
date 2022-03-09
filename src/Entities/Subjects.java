@@ -33,4 +33,11 @@ public class Subjects implements Serializable {
         this.description = description;
     }
 
+    @Override
+    public String toString() {
+        return "Subjects{" +
+                "code='" + code + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

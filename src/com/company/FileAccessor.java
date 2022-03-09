@@ -15,7 +15,7 @@ import java.util.StringTokenizer;
 public class FileAccessor {
 
     ArrayList<Teachers> llistaTeachers = new ArrayList();
-    // ArrayList<Revista> llistaRevistes = new ArrayList();
+    ArrayList<Subjects> llistaSubjects = new ArrayList();
 
     public FileAccessor() {
     }
@@ -47,6 +47,30 @@ public class FileAccessor {
             System.out.println(llistaTeachers.get(i).toString());
         }
     }
+
+    public void readSubjectsFile(String filename) throws IOException {
+
+        String code, description;
+
+        BufferedReader br = new BufferedReader(new FileReader(filename));
+        String linea = "";
+        while ((linea = br.readLine()) != null) {
+            StringTokenizer str = new StringTokenizer(linea, ",");
+            code = str.nextToken();
+            description = str.nextToken();
+
+            llistaSubjects.add(new Subjects(code, description));
+        }
+        br.close();
+    }
+
+    public void printSubjects() {
+        for (int i = 0; i < llistaSubjects.size(); i++) {
+            System.out.println(llistaSubjects.get(i).toString());
+        }
+    }
+
+
 /*
     public void printRevistes() {
         // TODO

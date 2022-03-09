@@ -42,4 +42,12 @@ public class Groups implements Serializable {
         this.course = course;
     }
 
+    @Override
+    public String toString() {
+        return "Groups{" +
+                "code='" + code + '\'' +
+                ", curriculum='" + curriculum + '\'' +
+                ", course=" + course +
+                '}';
+    }
 }

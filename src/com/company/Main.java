@@ -13,5 +13,12 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        try {
+            fileAccessor.readSubjectsFile("subjects.txt");
+            fileAccessor.printSubjects();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

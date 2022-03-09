@@ -70,4 +70,16 @@ public class Sessions implements Serializable {
     public void setId_teacher(int id_teacher) {
         this.id_teacher = id_teacher;
     }
+
+    @Override
+    public String toString() {
+        return "Sessions{" +
+                "week_day='" + week_day + '\'' +
+                ", code_group='" + code_group + '\'' +
+                ", code_subject='" + code_subject + '\'' +
+                ", starts=" + starts +
+                ", finishes=" + finishes +
+                ", id_teacher=" + id_teacher +
+                '}';
+    }
 }

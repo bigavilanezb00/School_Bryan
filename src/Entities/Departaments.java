@@ -44,4 +44,12 @@ public class Departaments  implements Serializable {
         this.phone = phone;
     }
 
+    @Override
+    public String toString() {
+        return "Departaments{" +
+                "code=" + code +
+                ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
+    }
 }
