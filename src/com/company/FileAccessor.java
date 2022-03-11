@@ -121,6 +121,30 @@ public class FileAccessor {
         }
     }
 
+    public void readSessionsFile(String filename) throws IOException {
+        String week_day,code_group,code_subject;
+        int starts,finishes,id_teacher;
+
+        BufferedReader br = new BufferedReader(new FileReader(filename));
+        String linea = "";
+        while ((linea = br.readLine()) != null) {
+            StringTokenizer str = new StringTokenizer(linea, ",");
+            week_day = str.nextToken();
+            code_group = str.nextToken();
+            code_subject = str.nextToken();
+            starts = Integer.parseInt(str.nextToken());
+            finishes = Integer.parseInt(str.nextToken());
+            id_teacher = Integer.parseInt(str.nextToken());
+
+            llistaSessions.add(new Sessions(week_day,code_group,code_subject,starts,finishes,id_teacher));
+        }
+    }
+
+    public void printSessions() {
+        for (int i = 0; i < llistaSessions.size(); i++) {
+            System.out.println(llistaSessions.get(i).toString());
+        }
+    }
 
 
 

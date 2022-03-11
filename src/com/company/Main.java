@@ -34,5 +34,12 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        try {
+            fileAccessor.readSessionsFile("sessions.txt");
+            fileAccessor.printSessions();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
