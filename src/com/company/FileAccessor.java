@@ -36,7 +36,7 @@ public class FileAccessor {
             name = str.nextToken();
             phone = str.nextToken();
 
-            llistaDepartaments.add(new Departaments(code,name,phone));
+            llistaDepartaments.add(new Departaments(code, name, phone));
         }
         br.close();
     }

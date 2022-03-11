@@ -27,6 +27,7 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         try {
             fileAccessor.readDepartamentsFile("departaments.txt");
             fileAccessor.printDepartaments();
