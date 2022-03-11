@@ -1,0 +1,53 @@
+CREATE TABLE departaments (
+	code integer NOT NULL,
+	name character varying(30) NOT NULL,
+	phone character varying(10) NOT NULL,
+	CONSTRAINT pk_departments PRIMARY KEY (code)
+);
+
+CREATE TABLE subjects (
+	code character varying(30) NOT NULL,
+	description character varying(30) NOT NULL,
+	CONSTRAINT pk_subjects PRIMARY KEY (code)
+);
+
+
+CREATE TABLE groups (
+	code character varying(30) NOT NULL,
+	curriculum character varying(30) NOT NULL,
+	course integer NOT NULL,
+	CONSTRAINT pk_groups PRIMARY KEY (code)
+);
+
+CREATE TABLE teachers (
+	id integer NOT NULL,
+	firstame character varying(30) NOT NULL,
+	lastname character varying(30) NOT NULL,
+	email character varying(30) NOT NULL,
+	code_dep integer NOT NULL,
+	CONSTRAINT pk_teachers PRIMARY KEY (id),
+	CONSTRAINT fk_teachers_deps FOREIGN KEY (code_dep)
+      		REFERENCES departaments (code) MATCH SIMPLE
+      		ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+
+
+CREATE TABLE sessions (
+	week_day character varying(10) NOT NULL,
+	starts integer NOT NULL,
+	finishes integer NOT NULL,
+	id_teacher integer NOT NULL,
+	code_group character varying(30) NOT NULL,
+	code_subject  character varying(30) NOT NULL, 
+	CONSTRAINT pk_sessions PRIMARY KEY (week_day,starts,finishes),
+	CONSTRAINT fk_session_teacher FOREIGN KEY (id_teacher)
+      		REFERENCES teachers(id) MATCH SIMPLE
+      		ON UPDATE NO ACTION ON DELETE NO ACTION,
+	CONSTRAINT fk_session_group FOREIGN KEY (code_group)
+      		REFERENCES groups(code) MATCH SIMPLE
+      		ON UPDATE NO ACTION ON DELETE NO ACTION,
+	CONSTRAINT fk_session_subject FOREIGN KEY (code_subject)
+      		REFERENCES subjects(code) MATCH SIMPLE
+      		ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+
