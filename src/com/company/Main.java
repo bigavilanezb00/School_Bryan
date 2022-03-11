@@ -20,5 +20,18 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        try {
+            fileAccessor.readGroupsFile("groups.txt");
+            fileAccessor.printGroups();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            fileAccessor.readDepartamentsFile("departaments.txt");
+            fileAccessor.printDepartaments();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

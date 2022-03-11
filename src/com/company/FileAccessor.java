@@ -14,10 +14,83 @@ import java.util.StringTokenizer;
 
 public class FileAccessor {
 
-    ArrayList<Teachers> llistaTeachers = new ArrayList();
+    ArrayList<Departaments> llistaDepartaments = new ArrayList<>();
     ArrayList<Subjects> llistaSubjects = new ArrayList();
+    ArrayList<Groups> llistaGroups = new ArrayList<>();
+    ArrayList<Teachers> llistaTeachers = new ArrayList();
+    ArrayList<Sessions> llistaSessions = new ArrayList<>();
 
     public FileAccessor() {
+    }
+
+    public void readDepartamentsFile(String filename) throws IOException {
+
+        int code;
+        String name, phone;
+
+        BufferedReader br = new BufferedReader(new FileReader(filename));
+        String linea = "";
+        while ((linea = br.readLine()) != null) {
+            StringTokenizer str = new StringTokenizer(linea, ",");
+            code = Integer.parseInt(str.nextToken());
+            name = str.nextToken();
+            phone = str.nextToken();
+
+            llistaDepartaments.add(new Departaments(code,name,phone));
+        }
+        br.close();
+    }
+
+    public void printDepartaments() {
+        for (int i = 0; i < llistaDepartaments.size(); i++) {
+            System.out.println(llistaDepartaments.get(i).toString());
+        }
+    }
+
+    public void readSubjectsFile(String filename) throws IOException {
+
+        String code, description;
+
+        BufferedReader br = new BufferedReader(new FileReader(filename));
+        String linea = "";
+        while ((linea = br.readLine()) != null) {
+            StringTokenizer str = new StringTokenizer(linea, ",");
+            code = str.nextToken();
+            description = str.nextToken();
+
+            llistaSubjects.add(new Subjects(code, description));
+        }
+        br.close();
+    }
+
+    public void printSubjects() {
+        for (int i = 0; i < llistaSubjects.size(); i++) {
+            System.out.println(llistaSubjects.get(i).toString());
+        }
+    }
+
+    public void readGroupsFile(String filename) throws IOException {
+
+        String code, curriculum;
+        int course;
+
+        BufferedReader br = new BufferedReader(new FileReader(filename));
+        String linea = "";
+        while ((linea = br.readLine()) != null) {
+            StringTokenizer str = new StringTokenizer(linea, ",");
+            code = str.nextToken();
+            curriculum = str.nextToken();
+            course = Integer.parseInt(str.nextToken());
+
+            llistaGroups.add(new Groups(code,curriculum,course));
+        }
+        br.close();
+    }
+
+    public void printGroups() {
+        for (int i = 0; i < llistaGroups.size(); i++) {
+            System.out.println(llistaGroups.get(i).toString());
+        }
     }
 
     public void readTeachersFile(String filename) throws IOException {
@@ -48,27 +121,8 @@ public class FileAccessor {
         }
     }
 
-    public void readSubjectsFile(String filename) throws IOException {
 
-        String code, description;
 
-        BufferedReader br = new BufferedReader(new FileReader(filename));
-        String linea = "";
-        while ((linea = br.readLine()) != null) {
-            StringTokenizer str = new StringTokenizer(linea, ",");
-            code = str.nextToken();
-            description = str.nextToken();
-
-            llistaSubjects.add(new Subjects(code, description));
-        }
-        br.close();
-    }
-
-    public void printSubjects() {
-        for (int i = 0; i < llistaSubjects.size(); i++) {
-            System.out.println(llistaSubjects.get(i).toString());
-        }
-    }
 
 
 /*
