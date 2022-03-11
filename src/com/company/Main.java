@@ -8,6 +8,13 @@ public class Main {
         FileAccessor fileAccessor = new FileAccessor();
 
         try {
+            fileAccessor.readDepartamentsFile("departaments.txt");
+            fileAccessor.printDepartaments();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
             fileAccessor.readTeachersFile("teachers.txt");
             fileAccessor.printTeachers();
         } catch (IOException e) {
@@ -28,12 +35,7 @@ public class Main {
             e.printStackTrace();
         }
 
-        try {
-            fileAccessor.readDepartamentsFile("departaments.txt");
-            fileAccessor.printDepartaments();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
 
         try {
             fileAccessor.readSessionsFile("sessions.txt");

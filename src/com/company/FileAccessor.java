@@ -49,13 +49,14 @@ public class FileAccessor {
 
     public void readSubjectsFile(String filename) throws IOException {
 
-        String code, description;
+        String  description;
+        int code;
 
         BufferedReader br = new BufferedReader(new FileReader(filename));
         String linea = "";
         while ((linea = br.readLine()) != null) {
             StringTokenizer str = new StringTokenizer(linea, ",");
-            code = str.nextToken();
+            code = Integer.parseInt(str.nextToken());
             description = str.nextToken();
 
             llistaSubjects.add(new Subjects(code, description));
@@ -71,14 +72,14 @@ public class FileAccessor {
 
     public void readGroupsFile(String filename) throws IOException {
 
-        String code, curriculum;
-        int course;
+        String  curriculum;
+        int course,code;
 
         BufferedReader br = new BufferedReader(new FileReader(filename));
         String linea = "";
         while ((linea = br.readLine()) != null) {
             StringTokenizer str = new StringTokenizer(linea, ",");
-            code = str.nextToken();
+            code = Integer.parseInt(str.nextToken());
             curriculum = str.nextToken();
             course = Integer.parseInt(str.nextToken());
 
@@ -108,7 +109,7 @@ public class FileAccessor {
             email = str.nextToken();
             code_dep = Integer.parseInt(str.nextToken());
             // System.out.println(id + name + country + year + active);
-            llistaTeachers.add(new Teachers(id, code_dep, firstname, lastname, email));
+            llistaTeachers.add(new Teachers(id, code_dep, firstname, lastname, email, llistaDepartaments.get(code_dep - 1)));
 
         }
         br.close();
@@ -121,28 +122,35 @@ public class FileAccessor {
         }
     }
 
+
+
     public void readSessionsFile(String filename) throws IOException {
-        String week_day,code_group,code_subject;
-        int starts,finishes,id_teacher;
+        String week_day;
+        int starts,finishes,id_teacher,code_group,code_subject;
 
         BufferedReader br = new BufferedReader(new FileReader(filename));
         String linea = "";
         while ((linea = br.readLine()) != null) {
             StringTokenizer str = new StringTokenizer(linea, ",");
             week_day = str.nextToken();
-            code_group = str.nextToken();
-            code_subject = str.nextToken();
+            code_group = Integer.parseInt(str.nextToken());
+            code_subject = Integer.parseInt(str.nextToken());
             starts = Integer.parseInt(str.nextToken());
             finishes = Integer.parseInt(str.nextToken());
             id_teacher = Integer.parseInt(str.nextToken());
 
-            llistaSessions.add(new Sessions(week_day,code_group,code_subject,starts,finishes,id_teacher));
+            llistaSessions.add(new Sessions(week_day,code_group,code_subject,starts,finishes,id_teacher,
+                    llistaTeachers.get(id_teacher - 1),
+                    llistaSubjects.get(code_subject - 1),
+                    llistaGroups.get(code_group - 1)));
         }
     }
 
     public void printSessions() {
         for (int i = 0; i < llistaSessions.size(); i++) {
             System.out.println(llistaSessions.get(i).toString());
+            System.out.println("     "+llistaSessions.get(i).getTeacher().toString());
+
         }
     }
 

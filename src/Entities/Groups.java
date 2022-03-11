@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 public class Groups implements Serializable {
 
-    private String code, curriculum;
-    private int course;
+    private String  curriculum;
+    private int code,course ;
 
-    public Groups( String code, String curriculum, int course){
+    public Groups( int code, String curriculum, int course){
         super();
         this.code = code;
         this.curriculum = curriculum;
@@ -18,11 +18,11 @@ public class Groups implements Serializable {
         super();
     }
 
-    public String getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(int code) {
         this.code = code;
     }
 

@@ -1,3 +1,3 @@
-lunes,b,cat,9,10,00123
-martes,a,eng,12,13,00234
-miercoles,c,edf,11,12,00432
+lunes,1,1,9,10,1
+martes,2,2,12,13,2
+miercoles,3,3,11,12,3

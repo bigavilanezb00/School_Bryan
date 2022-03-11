@@ -4,9 +4,10 @@ import java.io.Serializable;
 
 public class Subjects implements Serializable {
 
-    private String code, description;
+    private String  description;
+    private int code;
 
-    public Subjects( String code, String description){
+    public Subjects( int code, String description){
 
         super();
         this.code = code;
@@ -17,11 +18,11 @@ public class Subjects implements Serializable {
         super();
     }
 
-    public String getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(int code) {
         this.code = code;
     }
 

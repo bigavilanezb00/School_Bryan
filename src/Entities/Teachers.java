@@ -7,15 +7,19 @@ public class Teachers implements Serializable {
     private int id, code_dep;
     private String firstname, lastname, email;
 
-    public Teachers( int id, int code_dep, String firstname,
-                     String lastname, String email){
 
+
+    private Departaments department;
+
+    public Teachers( int id, int code_dep, String firstname,
+                     String lastname, String email, Departaments department){
         super();
         this.id = id;
         this.code_dep = code_dep;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
+        this.department = department;
     }
 
     public  Teachers(){
@@ -62,6 +66,14 @@ public class Teachers implements Serializable {
         this.email = email;
     }
 
+    public Departaments getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Departaments department) {
+        this.department = department;
+    }
+
     @Override
     public String toString() {
         return "Teachers{" +
@@ -70,6 +82,7 @@ public class Teachers implements Serializable {
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
+                ", department=" + department +
                 '}';
     }
 }
