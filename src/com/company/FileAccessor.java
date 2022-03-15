@@ -109,7 +109,7 @@ public class FileAccessor {
             email = str.nextToken();
             code_dep = Integer.parseInt(str.nextToken());
             // System.out.println(id + name + country + year + active);
-            llistaTeachers.add(new Teachers(id, code_dep, firstname, lastname, email, llistaDepartaments.get(code_dep - 1)));
+            llistaTeachers.add(new Teachers(id, firstname, lastname, email, llistaDepartaments.get(code_dep - 1)));
 
         }
         br.close();
@@ -139,7 +139,7 @@ public class FileAccessor {
             finishes = Integer.parseInt(str.nextToken());
             id_teacher = Integer.parseInt(str.nextToken());
 
-            llistaSessions.add(new Sessions(week_day,code_group,code_subject,starts,finishes,id_teacher,
+            llistaSessions.add(new Sessions(week_day,starts,finishes,
                     llistaTeachers.get(id_teacher - 1),
                     llistaSubjects.get(code_subject - 1),
                     llistaGroups.get(code_group - 1)));

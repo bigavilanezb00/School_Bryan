@@ -15,16 +15,13 @@ public class Sessions implements Serializable {
 
 
 
-    public Sessions( String week_day, int code_group, int code_subject,
-                     int starts, int finishes, int id_teacher, Teachers teacher,Subjects subject, Groups group) {
+    public Sessions( String week_day,
+                     int starts, int finishes, Teachers teacher,Subjects subject, Groups group) {
 
         super();
         this.week_day = week_day;
-        this.code_group = code_group;
-        this.code_subject = code_subject;
         this.starts = starts;
         this.finishes = finishes;
-        this.id_teacher = id_teacher;
         this.teacher = teacher;
         this.subject= subject;
         this.group = group;
@@ -42,22 +39,6 @@ public class Sessions implements Serializable {
         this.week_day = week_day;
     }
 
-    public int getCode_group() {
-        return code_group;
-    }
-
-    public void setCode_group(int code_group) {
-        this.code_group = code_group;
-    }
-
-    public int getCode_subject() {
-        return code_subject;
-    }
-
-    public void setCode_subject(int code_subject) {
-        this.code_subject = code_subject;
-    }
-
     public int getStarts() {
         return starts;
     }
@@ -72,14 +53,6 @@ public class Sessions implements Serializable {
 
     public void setFinishes(int finishes) {
         this.finishes = finishes;
-    }
-
-    public int getId_teacher() {
-        return id_teacher;
-    }
-
-    public void setId_teacher(int id_teacher) {
-        this.id_teacher = id_teacher;
     }
 
 
@@ -119,11 +92,11 @@ public class Sessions implements Serializable {
     public String toString() {
         return "Sessions{" +
                 "week_day='" + week_day + '\'' +
-                ", code_group='" + code_group + '\'' +
-                ", code_subject='" + code_subject + '\'' +
                 ", starts=" + starts +
                 ", finishes=" + finishes +
-                ", id_teacher=" + id_teacher +
+                ", teachers=" + teacher +
+                ", groups=" + group +
+                ", subject=" + subject +
                 '}';
     }
 }

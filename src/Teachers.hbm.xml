@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="Entities.Teachers" table="teachers">
+        <meta attribute="class-description">
+            Esta clase contiene detalles de los eachers
+        </meta>
+        <id name="id" type="integer" column="id">
+
+        </id>
+
+        <property name="firstname" column="firstname" type="string"/>
+        <property name="lastname" column="lastname" type="string"/>
+        <property name="email" column="email" type="string"/>
+
+        <many-to-one name="department" column="code_dep" class="Entities.Departaments"/>
+
+    </class>
+</hibernate-mapping>
