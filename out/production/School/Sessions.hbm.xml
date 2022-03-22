@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="Entities.Sessions" table="sessions">
+        <meta attribute="class-description">
+            Esta clase contiene detalles de las sessions.
+        </meta>
+
+        <composite-id>
+            <key-property name="week_day" column="week_day" type="string"/>
+            <key-property name="starts" column="starts" type="integer"/>
+            <key-property name="finishes" column="finishes" type="integer"/>
+        </composite-id>
+
+        <many-to-one name="group" column="code_group" class="Entities.Groups"/>
+        <many-to-one name="subject" column="code_subject" class="Entities.Subjects"/>
+        <many-to-one name="teacher" column="id_teacher" class="Entities.Teachers"/>
+
+    </class>
+</hibernate-mapping>
